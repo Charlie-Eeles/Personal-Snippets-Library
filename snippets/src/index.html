@@ -6,7 +6,23 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <div class="language-container">
+      <div class="flex-container">
+        <ul class="snippet-list">
+          <li>example #1</li>
+          <li>example #2</li>
+          <li>example #3</li>
+        </ul>
+        <div class="inner-container">
+          <h1 class="title">Regex</h1>
+          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <div id="editor">
+            <script>
+              require("./render.js")
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

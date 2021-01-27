@@ -31,15 +31,28 @@ fs.readdir(path, (err, files) => {
 
     let list = document.querySelector(".snippet-list");
 
-    for(let i=0; i<fileArray.length;i++){
+    if (fileArray.length > 0){
+        for(let i=0; i<fileArray.length;i++){
+            let item = document.createElement("li");
+            item.appendChild(document.createTextNode(fileArray[i][0]));
+            list.appendChild(item);
+        }
+    }
+    else{
         let item = document.createElement("li");
-        item.appendChild(document.createTextNode(fileArray[i][0]));
+        item.appendChild(document.createTextNode("No Snippets"));
         list.appendChild(item);
     }
 
     let title = document.querySelector(".title");
-    title.innerHTML = fileArray[0][0];
-    load().then(() => {codeEditor.setValue(fileArray[0][1]);})
+    if (fileArray[0] !== undefined){
+        title.innerHTML = fileArray[0][0];
+        load().then(() => {codeEditor.setValue(fileArray[0][1]);})
+    }
+    else{
+        title.innerHTML = "New Snippet";
+    }
+
   });
 
 

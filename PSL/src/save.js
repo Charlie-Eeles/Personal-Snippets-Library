@@ -3,7 +3,7 @@ const { app } = require("electron").remote;
 
 let saveButton = document.getElementById('save');
 
-const path = app.getPath("appData") +"/PSL"
+const path = app.getPath("appData") +"/psl/snippets"
 
 if (!fs.existsSync(path)) {
     fs.mkdir(path, { recursive: true }, (err) => {

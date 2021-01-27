@@ -12,7 +12,10 @@ if (!fs.existsSync(path)) {
   }
 
 saveButton.addEventListener("click", () => {
-    fs.writeFile(path + "/tester.txt", "newtestttttbf", function (err) {
-        if (err) return console.log(err);
-      });
+  const monacoValue = codeEditor.getValue("#editor");
+  const title = document.querySelector(".title").innerText;
+
+  fs.writeFile(path + "/" + title + ".txt", monacoValue, function (err) {
+      if (err) return console.log(err);
+    });
 });

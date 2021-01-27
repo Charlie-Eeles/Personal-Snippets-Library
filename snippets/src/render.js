@@ -9,3 +9,5 @@ load().then((monaco) => {
         automaticLayout: true
     })
 })
+
+// codeEditor.getValue("#editor")

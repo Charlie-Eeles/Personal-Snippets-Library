@@ -31,16 +31,15 @@ fs.readdir(path, (err, files) => {
 
     let list = document.querySelector(".snippet-list");
 
-    for(let i=1; i<fileArray.length;i++){
+    for(let i=0; i<fileArray.length;i++){
         let item = document.createElement("li");
         item.appendChild(document.createTextNode(fileArray[i][0]));
         list.appendChild(item);
     }
 
     let title = document.querySelector(".title");
-    title.innerHTML = fileArray[0][1];
+    title.innerHTML = fileArray[0][0];
     load().then(() => {codeEditor.setValue(fileArray[0][1]);})
-    console.log(fileArray[0])
   });
 
 

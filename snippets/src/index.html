@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <link rel="stylesheet" href="index.css">
+    <script>
+      const { app } = require("electron").remote;
+      const fs = require("fs");
+      const path = app.getPath("appData") +"/PSL"
+      if (!fs.existsSync(path)) {
+          fs.mkdir(path, { recursive: true }, (err) => {
+              if (err) return console.log(err);
+            });
+        }
+    </script>
   </head>
   <body>
     <div class="language-container">

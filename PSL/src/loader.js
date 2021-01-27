@@ -34,7 +34,12 @@ fs.readdir(path, (err, files) => {
     if (fileArray.length > 0){
         for(let i=0; i<fileArray.length;i++){
             let item = document.createElement("li");
-            item.appendChild(document.createTextNode(fileArray[i][0]));
+            let button = document.createElement("button");
+            button.innerHTML = fileArray[i][0];
+            button.classList.add("snippet-button");
+            item.classList.add("snippet-li");
+            button.id = i;
+            item.appendChild(button);
             list.appendChild(item);
         }
     }
@@ -48,6 +53,13 @@ fs.readdir(path, (err, files) => {
     if (fileArray[0] !== undefined){
         title.innerHTML = fileArray[0][0];
         load().then(() => {codeEditor.setValue(fileArray[0][1]);})
+        let snippetButton = document.getElementsByClassName("snippet-button");
+        for(let i=0;i<snippetButton.length;i++){
+            snippetButton[i].addEventListener("click", () => {
+                title.innerHTML = fileArray[i][0];
+                codeEditor.setValue(fileArray[i][1]);
+            });
+        }
     }
     else{
         title.innerHTML = "New Snippet";

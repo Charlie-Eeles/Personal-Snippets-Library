@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { app } = require("electron").remote;
+const { app, getCurrentWindow } = require("electron").remote;
 
 let saveButton = document.getElementById('save');
 
@@ -18,4 +18,5 @@ saveButton.addEventListener("click", () => {
   fs.writeFile(path + "/" + title + ".txt", monacoValue, function (err) {
       if (err) return console.log(err);
     });
+  getCurrentWindow().reload();
 });

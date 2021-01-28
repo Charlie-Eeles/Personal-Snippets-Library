@@ -11,9 +11,25 @@
 }
 
 .snippet-list{
-  min-height: 100px;
+  height: 75vh;
   list-style-type: none;
+  overflow: auto;
+  scroll-behavior: auto;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+  }
+::-webkit-scrollbar-track {
+background-color: hidden;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+::-webkit-scrollbar-thumb {
+background-color: #4CAF50;
+}
+
+
 
 .title{
   outline: none;
@@ -52,6 +68,18 @@
 }
 
 .under-form-buttons{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  min-width: 173px;
+  margin-top: 10px;
+}
+
+#new-snippet{
   background-color: #4CAF50;
   border: none;
   color: white;

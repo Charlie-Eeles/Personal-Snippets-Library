@@ -67,7 +67,7 @@ fs.readdir(path, (err, files) => {
         })
     }
     else{
-        title.innerHTML = "New Snippet";
+        title.placeholder = "New Snippet";
     }
 
   });

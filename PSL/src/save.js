@@ -13,7 +13,7 @@ if (!fs.existsSync(path)) {
 
 saveButton.addEventListener("click", () => {
   const monacoValue = codeEditor.getValue("#editor");
-  const title = document.querySelector(".title").innerText;
+  const title = document.querySelector(".title").value;
 
   fs.writeFile(path + "/" + title + ".txt", monacoValue, function (err) {
       if (err) return console.log(err);

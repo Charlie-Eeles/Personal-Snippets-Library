@@ -16,7 +16,10 @@
 }
 
 .title{
-  margin: 0px;
+  outline: none;
+  border: none;
+  width: 350px;
+  font-size: larger;
   text-align: center;
 }
 
@@ -48,15 +51,14 @@
   margin: 10px;
 }
 
-#save{
+.under-form-buttons{
   background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 25px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  min-width: 200px;
+  min-width: 173px;
   margin-top: 10px;
-  margin-left: 22%;
 }

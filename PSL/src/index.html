@@ -23,13 +23,14 @@
         </ul>
         <div class="inner-container">
           <form>
-            <h1 contentEditable="true" class="title"></h1>
+            <input class="title"></input>
             <div id="editor">
               <script>
                 require("./loader.js")
               </script>
             </div>
-            <input type="button" id="save" value="save"/>
+            <input class="under-form-buttons" type="button" id="new-snippet" value="New Snippet">
+            <input class="under-form-buttons" type="button" id="save" value="save"/>
             <script>
               require("./save.js")
             </script>

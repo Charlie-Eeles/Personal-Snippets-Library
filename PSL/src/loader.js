@@ -51,15 +51,20 @@ fs.readdir(path, (err, files) => {
 
     let title = document.querySelector(".title");
     if (fileArray[0] !== undefined){
-        title.innerHTML = fileArray[0][0];
-        load().then(() => {codeEditor.setValue(fileArray[0][1]);})
+        title.placeholder = "New Snippet";
         let snippetButton = document.getElementsByClassName("snippet-button");
         for(let i=0;i<snippetButton.length;i++){
             snippetButton[i].addEventListener("click", () => {
-                title.innerHTML = fileArray[i][0];
+                title.value = fileArray[i][0];
                 codeEditor.setValue(fileArray[i][1]);
             });
         }
+        let newSnippetButton = document.getElementById("new-snippet");
+        newSnippetButton.addEventListener("click", () => {
+            title.value = "";
+            title.placeholder = "New Snippet";
+            codeEditor.setValue("");
+        })
     }
     else{
         title.innerHTML = "New Snippet";

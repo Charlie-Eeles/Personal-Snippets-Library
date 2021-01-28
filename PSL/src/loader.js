@@ -84,6 +84,7 @@ fs.readdir(path, (err, files) => {
         search.addEventListener("input", () => {
             let searchVal = document.querySelector("#search-snippets").value;
             if(searchVal !== ""){
+                list.innerHTML = ""
                 let searchFileArray = [];
                 for(i in fileArray){
                     let string = fileArray[i][0].toLowerCase();
@@ -94,7 +95,6 @@ fs.readdir(path, (err, files) => {
                     
                 }
                 if (searchFileArray.length !== 0){
-                    list.innerHTML = ""
                     for(let i=0; i<searchFileArray.length;i++){
                         let item = document.createElement("li");
                         let button = document.createElement("button");
@@ -104,6 +104,13 @@ fs.readdir(path, (err, files) => {
                         button.id = i;
                         item.appendChild(button);
                         list.appendChild(item);
+                    }
+                    let snippetButton = document.getElementsByClassName("snippet-button");
+                    for(let i=0;i<snippetButton.length;i++){
+                        snippetButton[i].addEventListener("click", () => {
+                            title.value = searchFileArray[i][0];
+                            codeEditor.setValue(searchFileArray[i][1]);
+                        });
                     }
                 }
                 else{
@@ -122,6 +129,13 @@ fs.readdir(path, (err, files) => {
                         button.id = i;
                         item.appendChild(button);
                         list.appendChild(item);
+                    }
+                    let snippetButton = document.getElementsByClassName("snippet-button");
+                    for(let i=0;i<snippetButton.length;i++){
+                        snippetButton[i].addEventListener("click", () => {
+                            title.value = fileArray[i][0];
+                            codeEditor.setValue(fileArray[i][1]);
+                        });
                     }
                 }
                 else{

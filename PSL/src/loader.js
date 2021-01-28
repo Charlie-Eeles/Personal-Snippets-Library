@@ -80,6 +80,57 @@ fs.readdir(path, (err, files) => {
                 console.log("Nothing to delete.")
             }
         })
+        let search = document.querySelector("#search-snippets")
+        search.addEventListener("input", () => {
+            let searchVal = document.querySelector("#search-snippets").value;
+            if(searchVal !== ""){
+                let searchFileArray = [];
+                for(i in fileArray){
+                    let string = fileArray[i][0].toLowerCase();
+                    let lowerSearch = searchVal.toLowerCase();
+                    if(string.includes(lowerSearch)){
+                        searchFileArray.push(fileArray[i])
+                    }
+                    
+                }
+                if (searchFileArray.length !== 0){
+                    list.innerHTML = ""
+                    for(let i=0; i<searchFileArray.length;i++){
+                        let item = document.createElement("li");
+                        let button = document.createElement("button");
+                        button.innerHTML = searchFileArray[i][0];
+                        button.classList.add("snippet-button");
+                        item.classList.add("snippet-li");
+                        button.id = i;
+                        item.appendChild(button);
+                        list.appendChild(item);
+                    }
+                }
+                else{
+                    list.innerHTML = "No matches"
+                }
+            }
+            else{
+                list.innerHTML = ""
+                if (fileArray.length > 0){
+                    for(let i=0; i<fileArray.length;i++){
+                        let item = document.createElement("li");
+                        let button = document.createElement("button");
+                        button.innerHTML = fileArray[i][0];
+                        button.classList.add("snippet-button");
+                        item.classList.add("snippet-li");
+                        button.id = i;
+                        item.appendChild(button);
+                        list.appendChild(item);
+                    }
+                }
+                else{
+                    let item = document.createElement("li");
+                    item.appendChild(document.createTextNode("No Snippets"));
+                    list.appendChild(item);
+                }
+            }
+        })
     }
     else{
         title.placeholder = "New Snippet";

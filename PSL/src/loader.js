@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { app } = require("electron").remote;
+const { app, getCurrentWindow } = require("electron").remote;
 const load = require("monaco-loader");
 
 const path = app.getPath("appData") +"/psl/snippets"
@@ -64,6 +64,21 @@ fs.readdir(path, (err, files) => {
             title.value = "";
             title.placeholder = "New Snippet";
             codeEditor.setValue("");
+        })
+        let deleteButton = document.getElementById("delete-snippet");
+        deleteButton.addEventListener("click", () => {
+            let deleteTitle = document.querySelector(".title").value;
+            if (deleteTitle != ""){
+                let deletePath = path + "/" + deleteTitle + ".txt"
+                fs.unlink(deletePath, (err) => {
+                    if (err) return console.log(err);
+                })
+                console.log("Successfully removed snippet.")
+                getCurrentWindow().reload();
+            }
+            else{
+                console.log("Nothing to delete.")
+            }
         })
     }
     else{

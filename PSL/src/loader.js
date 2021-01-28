@@ -6,11 +6,17 @@ const path = app.getPath("appData") +"/psl/snippets"
 const monacoDiv = document.getElementById("editor")
 
 load().then((monaco) => {
-    
+    let languageDropDown = document.getElementById("language");
+    let language = languageDropDown.value;
     codeEditor = monaco.editor.create(monacoDiv, {
-        language: "javascript",
+        language: language || "javascript",
         theme: "vs-dark",
         automaticLayout: true
+    })
+    model = codeEditor.getModel();
+    languageDropDown.addEventListener("click", () => {
+        let newLanguage = languageDropDown.value;
+        monaco.editor.setModelLanguage(model, newLanguage);
     })
 })
 

@@ -1,7 +1,12 @@
+body{
+  overflow: hidden;
+}
 
 .flex-container{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .inner-container{
@@ -11,10 +16,12 @@
 }
 
 .snippet-list{
-  height: 75vh;
+  margin-top: 10%;
+  max-height: 75%;
   list-style-type: none;
-  overflow: auto;
+  overflow: scroll;
   scroll-behavior: auto;
+  min-width: 235px;
 }
 
 ::-webkit-scrollbar {
@@ -28,8 +35,6 @@ margin-bottom: 10px;
 ::-webkit-scrollbar-thumb {
 background-color: #4CAF50;
 }
-
-
 
 .title{
   outline: none;
@@ -46,8 +51,8 @@ background-color: #4CAF50;
 }
 
 #editor{
-  margin-top: 30px;
-  height: 350px;
+  margin-top: 4%;
+  height: 380px;
   width: 350px;
 }
 
@@ -60,7 +65,7 @@ background-color: #4CAF50;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  min-width: 200px;
+  width: 200px;
 }
 
 .snippet-li{
@@ -76,7 +81,6 @@ background-color: #4CAF50;
   text-decoration: none;
   font-size: 16px;
   min-width: 173px;
-  margin-top: 10px;
 }
 
 #new-snippet{
@@ -87,6 +91,26 @@ background-color: #4CAF50;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  min-width: 173px;
-  margin-top: 10px;
+  min-width: 200px;
+  margin-top: 1%;
+  margin-left: 19%;
+}
+
+#search-snippets{
+  outline: none;
+  border: none;
+  width: 350px;
+  font-size: large;
+  text-align: center;   
+}
+
+#language{
+  outline: none;
+  border: none;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+#list-container{
+  max-height: 100vh;
 }

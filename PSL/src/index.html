@@ -2,34 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Personal Snippet Library</title>
     <link rel="stylesheet" href="index.css">
     <script>
-      const { app } = require("electron").remote;
-      const fs = require("fs");
-      const path = app.getPath("appData") +"/psl/snippets"
-      if (!fs.existsSync(path)) {
-          fs.mkdir(path, { recursive: true }, (err) => {
-              if (err) return console.log(err);
-            });
-        }
-        
+      require("./initialise.js")  
     </script>
   </head>
-  <body>
-    <div class="language-container">
-      <input type="button" id="new-snippet" value="New Snippet"></br>
+  <body class="language-container">
       <input type="text" id="search-snippets" placeholder="Search...">
       <div class="flex-container">
+        <div id="list-container">
         <ul class="snippet-list">
         </ul>
+        </div>
         <div class="inner-container">
           <form>
-            <input class="title"></input>
+            <input class="title" maxlength="15"></input>
             <div id="editor">
-              <script>
-                require("./loader.js")
-              </script>
             </div>
             <select name="Language" id="language">
               <option value="javascript">Javascript</option>
@@ -45,13 +34,14 @@
             </select>
             </br>
             <input class="under-form-buttons" type="button" id="delete-snippet" value="Delete">
-            <input class="under-form-buttons" type="button" id="save" value="Save"/>
+            <input class="under-form-buttons" type="button" id="save" value="Save"/></br>
+            <input type="button" id="new-snippet" value="New Snippet"></br>
             <script>
+              require("./loader.js")
               require("./save.js")
             </script>
           </form>
         </div>
       </div>
-    </div>
   </body>
 </html>

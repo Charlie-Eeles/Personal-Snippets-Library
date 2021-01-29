@@ -1,6 +1,6 @@
 {
-  "name": "snippets",
-  "productName": "snippets",
+  "name": "psl",
+  "productName": "psl",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -13,8 +13,8 @@
   },
   "keywords": [],
   "author": {
-    "name": "Charlie-Eeles",
-    "email": "41295345+Charlie-Eeles@users.noreply.github.com"
+    "name": "Charles-Eeles",
+    "email": "charlie.eeles@gmail.com"
   },
   "license": "MIT",
   "config": {
@@ -45,7 +45,9 @@
     }
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "monaco-editor": "^0.21.3",
+    "monaco-loader": "^1.0.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
